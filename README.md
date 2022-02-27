@@ -6,7 +6,6 @@ A "ready to deploy Telegram Bot" version of TwitchUserTracker
 - python3
 - requests
 - python-telegram-bot
-- 
 
 ## :zap: Usage
 
