@@ -33,11 +33,9 @@ def search(update, context):
         try:
             addId(update)
             user=update.message.text.split(" ",1)[1]
-            print(user)
             counter=0
             for line in us:
                 if chat_id in ids:
-                    print("in corso...")
                     url = "https://tmi.twitch.tv/group/user/"+line.lower()[:-1]+"/chatters"
                     r=requests.get(url).json()
                     chat=r.get('chatters')['viewers']
