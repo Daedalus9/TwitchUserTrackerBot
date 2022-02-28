@@ -74,15 +74,9 @@ def track(update, context):
         chat_id=update.effective_chat.id
         thread = threading.Thread(target=search, args=(update, context))
         thread.start()
-        
-    
-start_handler=CommandHandler('start', start)
-dispatcher.add_handler(start_handler)
 
-track_handler=CommandHandler('track', track)
-dispatcher.add_handler(track_handler)
-
-stop_handler=CommandHandler('stop', stop)
-dispatcher.add_handler(stop_handler)
+dispatcher.add_handler(CommandHandler('start', start))
+dispatcher.add_handler(CommandHandler('track', track))
+dispatcher.add_handler(CommandHandler('stop', stop))
 
 updater.idle()
