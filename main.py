@@ -58,7 +58,6 @@ def search(update, context):
             deleteId(update)
         else:
             context.bot.send_message(chat_id, "Nessun nickname specificato. Utilizza il comando come segue: /track nickname")
-            #deleteId(update)
     else:
         context.bot.send_message(chat_id, "Stai già facendo una ricerca. Attendi che finisca, prima di chiederne un'altra oppure utilizza il comando /stop per interrompere la ricerca corrente")
     
@@ -74,7 +73,6 @@ def stop(update, context):
         context.bot.send_message(chat_id, "Non stai facendo nessuna ricerca, al momento")
     
 def track(update, context):
-        chat_id=update.effective_chat.id
         thread = threading.Thread(target=search, args=(update, context))
         thread.start()
 
