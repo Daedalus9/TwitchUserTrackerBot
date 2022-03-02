@@ -9,7 +9,7 @@ A "ready to deploy Telegram Bot" version of TwitchUserTracker
 
 ## :zap: Usage
 
-- Add your Telegram Bot Token in "TOKEN" var
+- Add your Telegram Bot Token in var/token.yaml file
 
 ```bash
 git clone https://github.com/Daedalus9/TwitchUserTrackerBot
