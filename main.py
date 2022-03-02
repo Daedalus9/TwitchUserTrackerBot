@@ -1,9 +1,13 @@
+from lib2to3.pgen2 import token
 import logging
+import yaml
 from telegram.ext import Updater
 from module.handlers import cHandlers
 
 def main():
-    TOKEN = 'TOKEN'
+    with open(r"./var/token.yaml") as file:
+        data = yaml.full_load(file)
+    TOKEN = data['token']
     updater= Updater(TOKEN, use_context=True)
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
     cHandlers(updater)
