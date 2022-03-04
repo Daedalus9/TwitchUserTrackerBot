@@ -1,3 +1,6 @@
+from var.text import WELCOME_MESSAGE
+
+
 def start(update, context):
     chat_id=update.effective_chat.id
-    context.bot.send_message(chat_id, "Benvenuto! Utilizza il comando /track <nickname> per iniziare la ricerca")
+    context.bot.send_message(chat_id, WELCOME_MESSAGE)
