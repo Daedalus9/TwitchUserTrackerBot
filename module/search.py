@@ -1,6 +1,6 @@
 import requests
 from module.addDeleteId import ids, addId, deleteId
-from var.text import ERROR_NICKNAME, SEARCH_MESSAGE, STOP_SEARCH_MESSAGE, WARNING_MESSAGE
+from var.text import ERROR_NICKNAME, NOT_FIND_MESSAGE, SEARCH_MESSAGE, STOP_ANALYSIS_MESSAGE, STOP_SEARCH_MESSAGE, USER_TEXT, WARNING_MESSAGE, WATCH_TEXT
 
 def search(update, context):
     chat_id=update.effective_chat.id
@@ -19,7 +19,7 @@ def search(update, context):
                         r=requests.get(url).json()
                         chat=r.get('chatters')['viewers']
                         if(user in chat):
-                            context.bot.send_message(chat_id, user + " sta guardando " + line[:-1])
+                            context.bot.send_message(chat_id, user + WATCH_TEXT + line[:-1])
                             counter+=1
                             break
                     else:
@@ -28,8 +28,8 @@ def search(update, context):
                 except:
                     continue
             if(counter<1):
-                context.bot.send_message(chat_id, "L'utente " + user + " non sta guardando nessun canale Twitch, al momento")
-            context.bot.send_message(chat_id, "Fine analisi")
+                context.bot.send_message(chat_id, USER_TEXT + user + NOT_FIND_MESSAGE)
+            context.bot.send_message(chat_id, STOP_ANALYSIS_MESSAGE)
             us.close()
             deleteId(update)
         else:
