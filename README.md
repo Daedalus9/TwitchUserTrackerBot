@@ -1,6 +1,9 @@
 # TwitchUserTrackerBot
 A "ready to deploy Telegram Bot" version of TwitchUserTracker 
 
+## Telegram bot
+A deployed version is live on [@twitchwatchbot](https://t.me/twitchwatchbot)
+
 ## :notebook: Requirements
 
 - python3
